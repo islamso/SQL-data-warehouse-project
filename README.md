@@ -21,5 +21,14 @@ Develop a modern data Warehouse using SQL server to consolidate sales data, enab
 #### Specifications 
 -  **Data Sources** : Import data from two sources (ERP and CRM) provided as CSV files.
 -  **Data Quality** : Identify and resolve data quality issues before analysis .
--  **Integration** : Combine both 
+-  **Integration** : Combine both into a single data model designed for analytical queries .
+-  **Scope** : Focus on the latests data only , historization of data is not required .
+-  **Documentation** : Provide a clear documentation of the data model to support business stekholders and analytical teams.
+
+## About me 
+I'm Islam, a Data Engineer with a background in Computer Science Engineering, specializing in Big Data, from Morocco. I also hold a Master's degree in Business and Data Analytics from London.
+
+I focus on building data pipelines, data warehouses, and scalable data solutions, with experience in technologies such as Python, SQL, PySpark, Databricks, and Azure.
+
+
 
