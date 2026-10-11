@@ -1,4 +1,4 @@
-** silver.crm_cust_info
+silver.crm_cust_info
 
 INSERT INTO silver.crm_cust_info (
 cst_id ,
@@ -33,7 +33,7 @@ WHERE cst_id IS NOT NULL ) t
 WHERE row_num = 1;
 
 
-** silver.crm_prd_info
+ silver.crm_prd_info
 
 INSERT INTO silver.crm_prd_info (
 prd_id ,
