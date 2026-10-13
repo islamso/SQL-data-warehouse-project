@@ -110,6 +110,21 @@ CASE
 END AS GEN
 FROM bronze.erp_CUST_AZ12
 
+** silver.erp_LOC_A101
+INSERT INTO silver.erp_LOC_A101 (
+    CID ,
+    CNTRY
+)
+SELECT
+    REPLACE(CID, '-', '') AS CID,
+    CASE
+        WHEN TRIM(CHAR(13) + CHAR(10) + ' ' FROM CNTRY) = 'DE' THEN 'Germany'
+        WHEN TRIM(CHAR(13) + CHAR(10) + ' ' FROM CNTRY) IN ('US', 'USA') THEN 'United States'
+        WHEN TRIM(CHAR(13) + CHAR(10) + ' ' FROM CNTRY) = '' OR CNTRY IS NULL THEN 'n/a'
+        ELSE TRIM(CHAR(13) + CHAR(10) + ' ' FROM CNTRY)
+    END AS CNTRY
+FROM bronze.erp_LOC_A101;
+
 
 
 
