@@ -126,6 +126,24 @@ SELECT
 FROM bronze.erp_LOC_A101;
 
 
+**silver.erp_PX_CAT_G1V2
+INSERT into silver.erp_PX_CAT_G1V2 (
+    ID ,
+    CAT , 
+    SUBCAT,
+    MAINTENANCE
+)
+SELECT
+    ID,
+    CAT,
+    SUBCAT,
+    REPLACE(REPLACE(MAINTENANCE, CHAR(13), ''), CHAR(10), '') AS MAINTENANCE
+FROM bronze.erp_PX_CAT_G1V2;
+
+
+
+
+
 
 
 
