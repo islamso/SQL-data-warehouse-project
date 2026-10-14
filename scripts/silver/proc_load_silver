@@ -1,5 +1,7 @@
 ** silver.crm_cust_info
 
+TRUNCATE TABLE silver.crm_cust_info ;
+
 INSERT INTO silver.crm_cust_info (
 cst_id ,
 cst_key ,
@@ -35,6 +37,8 @@ WHERE row_num = 1;
 
 ** silver.crm_prd_info
 
+TRUNCATE TABLE silver.crm_prd_info
+
 INSERT INTO silver.crm_prd_info (
 prd_id ,
 cat_id ,
@@ -62,6 +66,9 @@ FROM bronze.crm_prd_info
 
 
 ** silver.crm_sales_details
+
+TRUNCATE TABLE silver.crm_sales_details
+
 INSERT INTO silver.crm_sales_details (
     sls_ord_num ,
     sls_prd_key , 
@@ -91,7 +98,11 @@ CASE WHEN sls_price IS NULL OR sls_price <=0
      ELSE sls_sales END AS sls_price
 FROM bronze.crm_sales_details
 
+
 ** silver.erp_CUST_AZ12
+
+TRUNCATE TABLE silver.erp_CUST_AZ12
+
 INSERT INTO silver.erp_CUST_AZ12(
     CID,
     BDATE,
@@ -110,7 +121,11 @@ CASE
 END AS GEN
 FROM bronze.erp_CUST_AZ12
 
+
 ** silver.erp_LOC_A101
+
+TRUNCATE TABLE silver.erp_LOC_A101
+
 INSERT INTO silver.erp_LOC_A101 (
     CID ,
     CNTRY
@@ -126,7 +141,10 @@ SELECT
 FROM bronze.erp_LOC_A101;
 
 
-**silver.erp_PX_CAT_G1V2
+** silver.erp_PX_CAT_G1V2
+
+TRUNCATE TABLE silver.erp_PX_CAT_G1V2
+
 INSERT into silver.erp_PX_CAT_G1V2 (
     ID ,
     CAT , 
