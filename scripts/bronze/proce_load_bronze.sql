@@ -1,8 +1,11 @@
 /* Stored procedure : Load bronze liar ( source ==> bronze)
 Script purpose : this stored procedure loads data into the 'bronze' schema from external csv files.
+
 It performs the following actions :
 - Truncates the bronze tables before loading data .
 - Uses the BULK insert command to load data from csv files to bronze tables.
+
+Parameters : this stored procedure doesn't accept any parameters or return any values
 
 Usage example : EXEC bronze.load_bronze; */
 
