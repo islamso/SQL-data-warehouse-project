@@ -5,9 +5,11 @@ It performs the following actions :
 - Truncates the silver tables before loading data .
 - inserts transformed and cleaned data from bronze into silver tables.
 
-Usage example : EXEC silver.load_silver; 
 
 Parameters : this stored procedure doesn't accept any parameters or return any values. 
+
+Usage example : EXEC silver.load_silver; 
+
 */
 
 
