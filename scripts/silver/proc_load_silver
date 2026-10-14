@@ -1,10 +1,12 @@
 /* Stored procedure : Load silver liar ( bronze ==> silver)
-Script purpose : this stored procedure loads data into the 'silver' schema from the bronze liar.
+Script purpose : this stored procedure performs the ETL process to populate 'silver' schema tables from the 'bronze' schema.
 It performs the following actions :
 - Truncates the silver tables before loading data .
-- Uses the BULK insert command to load data from bronze liar to silver liar.
+- inserts transformed and cleaned data from bronze into silver tables.
 
-Usage example : EXEC silver.load_silver; /*
+Usage example : EXEC silver.load_silver; */
+
+Parameters : this stored procedure doesn't accept any parameters or return any values
 
 
 USE datawarehouse;
