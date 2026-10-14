@@ -4,7 +4,7 @@ It performs the following actions :
 - Truncates the bronze tables before loading data .
 - Uses the BULK insert command to load data from csv files to bronze tables.
 
-Usage example : EXEC bronze.load_bronze; /*
+Usage example : EXEC bronze.load_bronze; */
 
 
 USE datawarehouse;
