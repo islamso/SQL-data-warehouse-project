@@ -1,8 +1,8 @@
-/* Stored procedure : Load silver liar ( source ==> silver)
+/* Stored procedure : Load silver liar ( bronze ==> silver)
 Script purpose : this stored procedure loads data into the 'silver' schema from the bronze liar.
 It performs the following actions :
 - Truncates the silver tables before loading data .
-- Uses the BULK insert command to load data from bronze liar files to silver tables.
+- Uses the BULK insert command to load data from bronze liar to silver liar.
 
 Usage example : EXEC silver.load_silver; /*
 
@@ -175,12 +175,12 @@ BEGIN
     END TRY
     
     BEGIN CATCH
-        PRINT 'Error occurred while loading bronze layer.';
+        PRINT 'Error occurred while loading silver layer.';
         PRINT ERROR_MESSAGE();
     END CATCH
 END;
 
-EXEC bronze.load_bronze;
+EXEC silver.load_silver;
     
     
     
