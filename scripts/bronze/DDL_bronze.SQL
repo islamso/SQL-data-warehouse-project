@@ -1,6 +1,5 @@
-/* DDL script : Create the bronze tables
-
-Script purpose : this script creates tables in the bronze Schema if the tables doesn't already exists  */
+/* DDL script : create bronze tables
+Script purpose : this script creates tables in the 'bronze' schema , dropping existing tables if they already exist.
 
 
 USE datawarehouse;
