@@ -4,8 +4,11 @@ Script purpose : this script creates tables in the 'bronze' schema , dropping ex
 
 USE datawarehouse;
 
-IF OBJECT_ID(N'bronze.crm_cust_info', N'U') IS NULL
-BEGIN
+IF OBJECT_ID(N'bronze.crm_cust_info', N'U') IS NOT NULL
+   DROP TABLE bronze.crm_cust_info ;
+
+GO
+
     CREATE TABLE bronze.crm_cust_info (
         cst_id INT ,
         cst_key NVARCHAR(50) ,
@@ -15,11 +18,15 @@ BEGIN
         cts_gndr NVARCHAR(10) ,
         cts_create_date DATE ,
     );
-END;
+
+GO
 
 
-IF OBJECT_ID(N'bronze.crm_prd_info', N'U') IS NULL
-BEGIN
+IF OBJECT_ID(N'bronze.crm_prd_info', N'U') IS NOT NULL
+   DROP TABLE bronze.crm_prd_info;
+
+GO
+
     CREATE TABLE bronze.crm_prd_info (
         prd_id INT ,
         prd_key NVARCHAR(50),
@@ -29,12 +36,16 @@ BEGIN
         prd_start_dt DATE ,
         prd_end_dt DATE,
     );
-END;
+
+GO
 
 
 
-IF OBJECT_ID(N'bronze.crm_sales_details', N'U') IS NULL
-BEGIN
+IF OBJECT_ID(N'bronze.crm_sales_details', N'U') IS NOT NULL
+   DROP TABLE bronze.crm_sales_details ;
+
+GO
+
     CREATE TABLE bronze.crm_sales_details (
         sls_ord_num NVARCHAR(50) ,
         sls_prd_key NVARCHAR(50) ,
@@ -46,33 +57,45 @@ BEGIN
         sls_quantity INT,
         sls_price DECIMAL(10, 2),
     );
-END;
+
+GO
 
 
 
-IF OBJECT_ID(N'bronze.erp_CUST_AZ12', N'U') IS NULL
-BEGIN
+IF OBJECT_ID(N'bronze.erp_CUST_AZ12', N'U') IS NOT NULL
+   DROP TABLE bronze.erp_CUST_AZ12 ;
+
+GO
+
     CREATE TABLE bronze.erp_CUST_AZ12 (
         CID NVARCHAR(50) ,
         BDATE DATE NULL,
         GEN NVARCHAR(50) NULL,
     );
-END;
+
+GO
 
 
 
-IF OBJECT_ID(N'bronze.erp_LOC_A101', N'U') IS NULL
-BEGIN
+IF OBJECT_ID(N'bronze.erp_LOC_A101', N'U') IS NOT NULL
+   DROP TABLE bronze.erp_LOC_A101 ;
+
+GO
+
     CREATE TABLE bronze.erp_LOC_A101 (
         CID NVARCHAR(50) ,
         CNTRY NVARCHAR(50) ,
     );
-END;
+
+GO
 
 
 
-IF OBJECT_ID(N'bronze.erp_LOC_A101', N'U') IS NULL
-BEGIN
+IF OBJECT_ID(N'bronze.erp_PX_CAT_G1V2', N'U') IS NOT NULL
+   DROP TABLE bronze.erp_PX_CAT_G1V2 ;
+
+GO
+
     CREATE TABLE bronze.erp_PX_CAT_G1V2 (
         ID NVARCHAR(50) , 
         CAT NVARCHAR(50) ,
@@ -80,7 +103,8 @@ BEGIN
         MAINTENANCE NVARCHAR(50) ,
         
     );
-END;
+
+GO
 
 
 
