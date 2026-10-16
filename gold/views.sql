@@ -38,3 +38,23 @@ ON silver.crm_prd_info.cat_id = silver.erp_PX_CAT_G1V2.ID
 WHERE prd_end_dt IS NULL  
 
 
+
+------------------------------------------------
+CREATE VIEW gold.fact_sales AS
+    SELECT 
+        sls_ord_num AS order_number,
+        product_key ,
+        customer_key ,
+        sls_order_dt AS order_date,
+        sls_ship_dt AS shipping_date ,
+        sls_due_dt AS due_date ,
+        sls_sales AS sales_amount ,
+        sls_quantity AS quantity,
+        sls_price AS price
+    FROM silver.crm_sales_details
+    LEFT JOIN gold.dim_products
+    ON silver.crm_sales_details.sls_prd_key = gold.dim_products.product_number
+    LEFT JOIN gold.dim_customers
+    ON silver.crm_sales_details.sls_cust_id = gold.dim_customers.customer_id
+
+
