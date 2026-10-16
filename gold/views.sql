@@ -17,3 +17,24 @@ CREATE VIEW gold.dim_customers AS
     LEFT JOIN silver.erp_LOC_A101
     ON silver.crm_cust_info.cst_key = silver.erp_LOC_A101.CID
 
+
+--------------------------------------
+
+CREATE VIEW gold.dim_product AS
+SELECT ROW_NUMBER() OVER (ORDER BY cat_id) AS gold_id,
+prd_id AS product_id,
+prd_key AS product_NUMBER ,
+prd_nm AS product_name ,
+cat_id AS category_id , 
+CAT AS category ,
+SUBCAT AS subcategory ,
+MAINTENANCE AS maintenance,
+prd_cost AS cost,
+prd_line AS product_line ,
+prd_start_dt AS startdate
+FROM silver.crm_prd_info 
+LEFT JOIN silver.erp_PX_CAT_G1V2
+ON silver.crm_prd_info.cat_id = silver.erp_PX_CAT_G1V2.ID  
+WHERE prd_end_dt IS NULL  
+
+
